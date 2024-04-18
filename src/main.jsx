@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
-import { reducer } from "./store/reducer.js";
+import { userReducer } from "./store/reducer.js";
 import ConnectedApp from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const store = createStore(reducer);
+export const store = createStore(userReducer);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

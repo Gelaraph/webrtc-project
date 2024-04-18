@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Participant.css";
 
 export const Participant = ({ participant }) => {
+  console.log({ party: participant });
   return (
     <div className="participant">
       <Card>
@@ -23,7 +24,7 @@ export const Participant = ({ participant }) => {
           title="Muted"
         />
         <div style={{ background: participant.avatarColor }} className="avatar">
-          {participant.userName[0]}
+          {participant?.userName[0]}
         </div>
         <div className="name">
           {participant.userName}
