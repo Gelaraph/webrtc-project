@@ -15,12 +15,14 @@ import {
   removeParticipant,
   setUser,
   setUserStream,
+  updateUser,
+  updateParticipant,
 } from "./store/actionCreator";
 import { onValue, ref } from "firebase/database";
 import { useSearchParams } from "react-router-dom";
 import MainScreen from "./components/MainScreen/MainScreen";
 
-export let check;
+export let roomNumber;
 
 // eslint-disable-next-line react/prop-types
 function App({ addParticipant, setUser, setUserStream }) {
@@ -28,7 +30,7 @@ function App({ addParticipant, setUser, setUserStream }) {
   const [params, setParams] = useSearchParams();
   const roomId = params.get("id");
 
-  check = roomId;
+  roomNumber = roomId;
 
   const getUserStream = async () => {
     const localStream = await navigator.mediaDevices.getUserMedia({
@@ -123,6 +125,7 @@ const mapDispatchToProps = (dispatch) => {
     addParticipant: (participant) => dispatch(addParticipant(participant)),
     removeParticipant: (participantKey) =>
       dispatch(removeParticipant(participantKey)),
+    updateParticipant: (user) => dispatch(updateParticipant(user)),
   };
 };
 
